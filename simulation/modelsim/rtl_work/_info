@@ -1,0 +1,52 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Adam/Desktop/Salsa20/simulation/modelsim
+vquarter_round
+Z1 !s110 1663758292
+!i10b 1
+!s100 8jEWXE[6RFFMmjA5XImVK2
+I1:FHkE<U^Ea_KL^OlTWe31
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1663756970
+8C:/Users/Adam/Desktop/Salsa20/quarter_round.v
+FC:/Users/Adam/Desktop/Salsa20/quarter_round.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1663758292.000000
+!s107 C:/Users/Adam/Desktop/Salsa20/quarter_round.v|
+!s90 -reportprogress|300|-work|work|C:/Users/Adam/Desktop/Salsa20/quarter_round.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+vtb_quarter_round
+R1
+!i10b 1
+!s100 DP_K[R`GQUG0h73KX=Man2
+I_nP]FKeM43_T4P7?gba?T2
+R2
+R0
+w1663758279
+8C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v
+FC:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v|
+!s90 -reportprogress|300|-work|work|C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v|
+!i113 1
+R5
+R6

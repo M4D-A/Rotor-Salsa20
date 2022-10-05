@@ -1,0 +1,197 @@
+# Reading C:/intelFPGA_lite/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# do Salsa20_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/Adam/Desktop/Salsa20 {C:/Users/Adam/Desktop/Salsa20/quarter_round.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:39:13 on Sep 21,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Adam/Desktop/Salsa20" C:/Users/Adam/Desktop/Salsa20/quarter_round.v 
+# -- Compiling module quarter_round
+# 
+# Top level modules:
+# 	quarter_round
+# End time: 12:39:13 on Sep 21,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/quarter_round.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:41:16 on Sep 21,2022
+# vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/quarter_round.v 
+# -- Compiling module quarter_round
+# 
+# Top level modules:
+# 	quarter_round
+# End time: 12:41:16 on Sep 21,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:41:16 on Sep 21,2022
+# vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v 
+# -- Compiling module tb_quarter_round
+# ** Error: (vlog-13069) C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v(44): near ")": syntax error, unexpected ')', expecting .* or '.'.
+# End time: 12:41:16 on Sep 21,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/quarter_round.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:42:11 on Sep 21,2022
+# vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/quarter_round.v 
+# -- Compiling module quarter_round
+# 
+# Top level modules:
+# 	quarter_round
+# End time: 12:42:11 on Sep 21,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:42:11 on Sep 21,2022
+# vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v 
+# -- Compiling module tb_quarter_round
+# 
+# Top level modules:
+# 	tb_quarter_round
+# End time: 12:42:11 on Sep 21,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tb_quarter_round
+# vsim work.tb_quarter_round 
+# Start time: 12:42:16 on Sep 21,2022
+# Loading work.tb_quarter_round
+# Loading work.quarter_round
+add wave -position end  sim:/tb_quarter_round/CLKp
+add wave -position end  sim:/tb_quarter_round/clk
+add wave -position end  sim:/tb_quarter_round/a_in
+add wave -position end  sim:/tb_quarter_round/b_in
+add wave -position end  sim:/tb_quarter_round/c_in
+add wave -position end  sim:/tb_quarter_round/d_in
+add wave -position end  sim:/tb_quarter_round/a_out
+add wave -position end  sim:/tb_quarter_round/b_out
+add wave -position end  sim:/tb_quarter_round/c_out
+add wave -position end  sim:/tb_quarter_round/d_out
+run
+run
+run
+run
+vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/quarter_round.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:43:20 on Sep 21,2022
+# vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/quarter_round.v 
+# -- Compiling module quarter_round
+# 
+# Top level modules:
+# 	quarter_round
+# End time: 12:43:20 on Sep 21,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:43:20 on Sep 21,2022
+# vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v 
+# -- Compiling module tb_quarter_round
+# 
+# Top level modules:
+# 	tb_quarter_round
+# End time: 12:43:20 on Sep 21,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart
+# Loading work.tb_quarter_round
+# Loading work.quarter_round
+restart
+add wave -position end  sim:/tb_quarter_round/CLKp
+add wave -position end  sim:/tb_quarter_round/clk
+add wave -position end  sim:/tb_quarter_round/a_in
+add wave -position end  sim:/tb_quarter_round/b_in
+add wave -position end  sim:/tb_quarter_round/c_in
+add wave -position end  sim:/tb_quarter_round/d_in
+add wave -position end  sim:/tb_quarter_round/a_out
+add wave -position end  sim:/tb_quarter_round/b_out
+add wave -position end  sim:/tb_quarter_round/c_out
+add wave -position end  sim:/tb_quarter_round/d_out
+add wave -position end  sim:/tb_quarter_round/CLKp
+add wave -position end  sim:/tb_quarter_round/clk
+add wave -position end  sim:/tb_quarter_round/a_in
+add wave -position end  sim:/tb_quarter_round/b_in
+add wave -position end  sim:/tb_quarter_round/c_in
+add wave -position end  sim:/tb_quarter_round/d_in
+add wave -position end  sim:/tb_quarter_round/a_out
+add wave -position end  sim:/tb_quarter_round/b_out
+add wave -position end  sim:/tb_quarter_round/c_out
+add wave -position end  sim:/tb_quarter_round/d_out
+run
+run
+vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/quarter_round.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:00:27 on Sep 21,2022
+# vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/quarter_round.v 
+# -- Compiling module quarter_round
+# 
+# Top level modules:
+# 	quarter_round
+# End time: 13:00:27 on Sep 21,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:00:27 on Sep 21,2022
+# vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v 
+# -- Compiling module tb_quarter_round
+# ** Error: C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v(7): Multiple packed dimensions are not allowed.
+# ** Error: C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v(8): Multiple packed dimensions are not allowed.
+# ** Error: C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v(9): Multiple packed dimensions are not allowed.
+# ** Error: C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v(10): Multiple packed dimensions are not allowed.
+# End time: 13:00:27 on Sep 21,2022, Elapsed time: 0:00:00
+# Errors: 4, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/quarter_round.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:01:48 on Sep 21,2022
+# vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/quarter_round.v 
+# -- Compiling module quarter_round
+# 
+# Top level modules:
+# 	quarter_round
+# End time: 13:01:48 on Sep 21,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:01:48 on Sep 21,2022
+# vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v 
+# -- Compiling module tb_quarter_round
+# 
+# Top level modules:
+# 	tb_quarter_round
+# End time: 13:01:48 on Sep 21,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tb_quarter_round
+# End time: 13:01:55 on Sep 21,2022, Elapsed time: 0:19:39
+# Errors: 4, Warnings: 0
+# vsim work.tb_quarter_round 
+# Start time: 13:01:55 on Sep 21,2022
+# Loading work.tb_quarter_round
+# Loading work.quarter_round
+run
+vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/quarter_round.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:04:52 on Sep 21,2022
+# vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/quarter_round.v 
+# -- Compiling module quarter_round
+# 
+# Top level modules:
+# 	quarter_round
+# End time: 13:04:52 on Sep 21,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:04:52 on Sep 21,2022
+# vlog -reportprogress 300 -work work C:/Users/Adam/Desktop/Salsa20/tb_quarter_round.v 
+# -- Compiling module tb_quarter_round
+# 
+# Top level modules:
+# 	tb_quarter_round
+# End time: 13:04:52 on Sep 21,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 13:05:11 on Sep 21,2022, Elapsed time: 0:03:16
+# Errors: 0, Warnings: 0
