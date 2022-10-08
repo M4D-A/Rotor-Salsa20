@@ -32,11 +32,17 @@ initial begin
     data_copy <= 512'h0;
 end
 
-wire [511 : 0] data_out_wire;
+wire [511 : 0] data_out_wire_odd;
+wire [511 : 0] data_out_wire_even;
 
-double_round dr(
+odd_round oddr(
     .d_in(data),
-    .d_out(data_out_wire)
+    .d_out(data_out_wire_odd)
+);
+
+even_round evenr(
+    .d_in(data),
+    .d_out(data_out_wire_even)
 );
 
 always @(posedge clk) begin
@@ -82,34 +88,39 @@ always @(posedge clk) begin
     if (state == 2) begin //hash
         counter <= counter + 1;
 
-        if(counter < 9) begin
-            data <= data_out_wire;
-        end
-
         if(counter == 0) begin
             data_copy <= data;
         end
 
-        if(counter == 9) begin
-            data[511:480] <= data_out_wire[511:480] + data_copy[511:480];
-            data[479:448] <= data_out_wire[479:448] + data_copy[479:448];
-            data[447:416] <= data_out_wire[447:416] + data_copy[447:416];
-            data[415:384] <= data_out_wire[415:384] + data_copy[415:384];
-            data[383:352] <= data_out_wire[383:352] + data_copy[383:352];
-            data[351:320] <= data_out_wire[351:320] + data_copy[351:320];
-            data[319:288] <= data_out_wire[319:288] + data_copy[319:288];
-            data[287:256] <= data_out_wire[287:256] + data_copy[287:256];
-            data[255:224] <= data_out_wire[255:224] + data_copy[255:224];
-            data[223:192] <= data_out_wire[223:192] + data_copy[223:192];
-            data[191:160] <= data_out_wire[191:160] + data_copy[191:160];
-            data[159:128] <= data_out_wire[159:128] + data_copy[159:128];
-            data[127:096] <= data_out_wire[127:096] + data_copy[127:096];
-            data[095:064] <= data_out_wire[095:064] + data_copy[095:064];
-            data[063:032] <= data_out_wire[063:032] + data_copy[063:032];
-            data[031:000] <= data_out_wire[031:000] + data_copy[031:000];
+        if(counter < 20) begin
+            if(counter % 2 == 0) begin
+                data <= data_out_wire_even;
+            end
+            else begin
+                data <= data_out_wire_odd;
+            end
         end
 
-        if (counter == 10) begin
+        if(counter == 20) begin
+            data[511:480] <= data[511:480] + data_copy[511:480];
+            data[479:448] <= data[479:448] + data_copy[479:448];
+            data[447:416] <= data[447:416] + data_copy[447:416];
+            data[415:384] <= data[415:384] + data_copy[415:384];
+            data[383:352] <= data[383:352] + data_copy[383:352];
+            data[351:320] <= data[351:320] + data_copy[351:320];
+            data[319:288] <= data[319:288] + data_copy[319:288];
+            data[287:256] <= data[287:256] + data_copy[287:256];
+            data[255:224] <= data[255:224] + data_copy[255:224];
+            data[223:192] <= data[223:192] + data_copy[223:192];
+            data[191:160] <= data[191:160] + data_copy[191:160];
+            data[159:128] <= data[159:128] + data_copy[159:128];
+            data[127:096] <= data[127:096] + data_copy[127:096];
+            data[095:064] <= data[095:064] + data_copy[095:064];
+            data[063:032] <= data[063:032] + data_copy[063:032];
+            data[031:000] <= data[031:000] + data_copy[031:000];
+        end
+
+        if (counter == 21) begin
             data_out <= data[7 : 0];
             data[503 : 000] <= data[511 : 008];
             data[511 : 504] <= 8'b0;

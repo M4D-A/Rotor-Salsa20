@@ -16,7 +16,7 @@ end
 wire ready;
 wire writes;
 wire [7 : 0] out;
- 
+
 
 salsa_hash_seq tb_block(
     .clk(clk),
