@@ -1,0 +1,8 @@
+Salsa20_nativelink_simulation.rpt
+c5_pin_model_dump.txt*
+db/*
+incremental_db/*
+output_files/*
+*.png*
+*.v.bak
+simulation/*
