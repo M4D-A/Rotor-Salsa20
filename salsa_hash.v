@@ -1,4 +1,4 @@
-module salsa_hash_seq(
+module salsa_hash(
     input wire clk,
     input wire start,
     input wire reset,
@@ -16,34 +16,33 @@ reg [7 : 0] counter;
 reg [511 : 0] data;
 reg [511 : 0] data_copy;
 
+wire [511 : 0] odd_out;
+wire [511 : 0] even_out;
+
 assign ready = (state == 0);
 assign writes = (state == 3);
 
-initial begin
-    state <= 7'b0;
-    counter <= 7'b0;
+odd_round oddr(
+    .d_in(data),
+    .d_out(odd_out)
+);
 
+even_round evenr(
+    .d_in(data),
+    .d_out(even_out)
+);
+
+initial begin
     data <= 512'b0;
     data[031 : 000] <= 31'h61707865;
     data[191 : 160] <= 31'h3320646e;
     data[351 : 320] <= 31'h79622d32;
     data[511 : 480] <= 31'h6b206574;
-
     data_copy <= 512'h0;
+
+    counter <= 7'b0;
+    state <= 7'b0;
 end
-
-wire [511 : 0] data_out_wire_odd;
-wire [511 : 0] data_out_wire_even;
-
-odd_round oddr(
-    .d_in(data),
-    .d_out(data_out_wire_odd)
-);
-
-even_round evenr(
-    .d_in(data),
-    .d_out(data_out_wire_even)
-);
 
 always @(posedge clk) begin
     if (reset) begin
@@ -93,11 +92,11 @@ always @(posedge clk) begin
         end
 
         if(counter < 20) begin
-            if(counter % 2 == 0) begin
-                data <= data_out_wire_even;
+            if(counter % 2 == 1) begin
+                data <= even_out;
             end
             else begin
-                data <= data_out_wire_odd;
+                data <= odd_out;
             end
         end
 
@@ -136,13 +135,14 @@ always @(posedge clk) begin
         counter <= counter + 1;
         if (counter == 63) begin
             data_out <= 8'bx;
-            state <= 0;
-            counter <= 0;
             data <= 512'b0;
             data[031 : 000] <= 31'h61707865;
             data[191 : 160] <= 31'h3320646e;
             data[351 : 320] <= 31'h79622d32;
             data[511 : 480] <= 31'h6b206574;
+
+            counter <= 0;
+            state <= 0;
         end 
     end
 end
