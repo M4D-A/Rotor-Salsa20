@@ -23,13 +23,13 @@ assign ready = (state == 0);
 assign writes = (state == 3);
 
 odd_round oddr(
-    .d_in(data),
-    .d_out(odd_out)
+    .data_in(data),
+    .data_out(odd_out)
 );
 
 even_round evenr(
-    .d_in(data),
-    .d_out(even_out)
+    .data_in(data),
+    .data_out(even_out)
 );
 
 initial begin
@@ -56,14 +56,17 @@ always @(posedge clk) begin
         data[511 : 480] <= 31'h6b206574;
         data_copy <= 512'h0;
     end 
-    
-    if ((start == 1) && (state == 0)) begin // wait for data and read key[0]
-        state <= 1;
-        counter <= 1;
-        data [63:32] <= data_in;
+
+    case(state)
+    0: begin
+        if(start == 1) begin // wait for data and read key[0]
+            state <= 1;
+            counter <= 1;
+            data [63:32] <= data_in;
+        end
     end
 
-    if (state == 1) begin //read
+    1: begin
         counter <= counter + 1;
         if (counter == 1) begin data [95:64] <= data_in; end //key[1]
         else if (counter == 2) begin data [127:96] <= data_in; end //key[2]
@@ -84,7 +87,7 @@ always @(posedge clk) begin
         end //pos[1]
     end
 
-    if (state == 2) begin //hash
+    2: begin
         counter <= counter + 1;
 
         if(counter == 0) begin
@@ -128,7 +131,7 @@ always @(posedge clk) begin
         end
     end
 
-    if (state == 3) begin
+    3: begin
         data_out <= data[7 : 0];
         data[503 : 000] <= data[511 : 008];
         data[511 : 504] <= 8'b0;
@@ -145,6 +148,7 @@ always @(posedge clk) begin
             state <= 0;
         end 
     end
+    endcase
 end
 
 endmodule
