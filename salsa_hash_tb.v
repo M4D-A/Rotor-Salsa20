@@ -36,18 +36,18 @@ salsa_hash tb_block(
 initial begin
     start = 1'b0;
     reset = 1'b0;
-    input_data[00] = 32'h1;
-    input_data[01] = 32'h2;
-    input_data[02] = 32'h3;
-    input_data[03] = 32'h4;
-    input_data[04] = 32'h5;
-    input_data[05] = 32'h6;
-    input_data[06] = 32'h7;
-    input_data[07] = 32'h8;
-    input_data[08] = 32'h9;
-    input_data[09] = 32'hA;
-    input_data[10] = 32'hB;
-    input_data[11] = 32'hC;
+    input_data[00] = 32'h1; //key[0]
+    input_data[01] = 32'h2; //key[1]
+    input_data[02] = 32'h3; //key[2]
+    input_data[03] = 32'h4; //key[3]
+    input_data[04] = 32'h5; //key[4]
+    input_data[05] = 32'h6; //key[5]
+    input_data[06] = 32'h7; //key[6]
+    input_data[07] = 32'h8; //key[7]
+    input_data[08] = 32'h9; //nonce[0]
+    input_data[09] = 32'hA; //nonce[1]
+    input_data[10] = 32'hB; //pos[0]
+    input_data[11] = 32'hC; //pos[1]
 
     output_data_unit[0] = 512'hDE47B80039E3FA4EE7419247A858F91079D8A4A0BC3C8133223A71CA624D2DDB566A9D8425464CEA721EBEBAE2F310184F9BEFD18679D9CF4F775DD535E7C3D8;
     output_data_unit[1] = 512'h094C453EA4A80D377D8348C43FBAF330823565790091FF1BF94FFA521674367AAEC9D3351CA42A66905AA4CEE8D97A673B15CA8FB340F8863E66E4D686E57C73;
