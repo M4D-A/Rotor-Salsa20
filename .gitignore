@@ -6,3 +6,4 @@ output_files/*
 *.png*
 *.v.bak
 simulation/*
+*.out

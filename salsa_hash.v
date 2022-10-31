@@ -19,8 +19,8 @@ reg [511 : 0] data_copy;
 wire [511 : 0] odd_out;
 wire [511 : 0] even_out;
 
-assign ready = (state == READY);
-assign writes = (state == WRITES);
+assign ready = (state == 0);
+assign writes = (state == 4);
 assign data_out = data[007 : 000];
 
 odd_round oddr(
@@ -96,7 +96,8 @@ always @(posedge clk) begin
                 end
                 counter <= counter + 1;
             end
-
+            
+             
             else if(counter == 21) begin
                 data[511:480] <= data[511:480] + data_copy[511:480];
                 data[479:448] <= data[479:448] + data_copy[479:448];
