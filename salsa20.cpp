@@ -38,30 +38,15 @@ void quarterround(uint32_t *y0, uint32_t *y1, uint32_t *y2, uint32_t *y3){
 }
 
 void doubleround(uint32_t x[16]){
-
-
-  
   quarterround(&x[0], &x[4], &x[8], &x[12]);
   quarterround(&x[5], &x[9], &x[13], &x[1]);
   quarterround(&x[10], &x[14], &x[2], &x[6]);
   quarterround(&x[15], &x[3], &x[7], &x[11]);
 
-  printf("fr\n");
-  for(int i = 0; i < 16; ++i){
-      printf("%08x ", x[15-i]);
-  }
-  printf("\n");
-
   quarterround(&x[0], &x[1], &x[2], &x[3]);
   quarterround(&x[5], &x[6], &x[7], &x[4]);
   quarterround(&x[10], &x[11], &x[8], &x[9]);
   quarterround(&x[15], &x[12], &x[13], &x[14]);
-
-  printf("sr\n");
-  for(int i = 0; i < 16; ++i){
-      printf("%08x ", x[15-i]);
-  }
-  printf("\n");
 
 }
 
@@ -83,11 +68,6 @@ void salsa_hash(uint32_t key[8], uint32_t nonce[2], uint32_t counter[2], uint32_
     for (i = 0; i < 2; ++i) state[ 8+i] = counter[i];
     for (i = 0; i < 4; ++i) state[ 1+i] = key[i];
     for (i = 0; i < 4; ++i) state[11+i] = key[4+i];
-    printf("init\n");
-    for(int i = 0; i < 16; ++i){
-        printf("%08x ", state[15-i]);
-    }
-    printf("\n");
     state_hash(state);
 }
 
@@ -120,9 +100,9 @@ void encrypt(uint8_t _key[32], uint8_t _nonce[8], uint8_t* in, uint8_t* out, uin
 }
 
 int main(){
-  uint32_t key[8] = {0,0,0,0,0,0,0,0};
-  uint32_t nonce[2] = {0,0};
-  uint32_t counter[2] = {4,0};
+  uint32_t key[8] = {0x90ABCDEF, 0x12345678, 0x90ABCDEF, 0x12345678, 0x90ABCDEF, 0x12345678, 0x90ABCDEF, 0x12345678};
+  uint32_t nonce[2] = {0x90ABCDEF, 0x12345678};
+  uint32_t counter[2] = {3,0};
   uint32_t state[16] = {0};
   uint8_t state8[64] = {0};
 
@@ -130,7 +110,10 @@ int main(){
 
   salsa_hash(key, nonce, counter, state);
   u32_to_u8(state, state8, 16);
-  for(int i = 0; i < 64; ++i) printf("%02x ", state8[63 - i]);
+  for(int i = 0; i < 64; ++i) {
+    printf("%02x", state8[63 - i]);
+    if(i % 16 == 15) printf("\n");
+  }
 
 
 }

@@ -13,7 +13,7 @@ module salsa (
 parameter
 	IDLE			= 8'h00,
 	KEY_SET			= 8'h01,
-	COUNTER_SET	= 8'h02,
+	COUNTER_SET	    = 8'h02,
 	ENC				= 8'h03,
 	COUNTER_INC		= 8'h04;
 
@@ -159,8 +159,5 @@ always @(posedge CLK or negedge RST_N) begin
 		endcase
 	end
 end	
-	
-
-
 
 endmodule 
